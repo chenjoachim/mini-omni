@@ -5,6 +5,7 @@ import re
 from litgpt.model import GPT  # needs to be imported before config
 from litgpt.config import Config
 from litgpt.tokenizer import Tokenizer
+from litgpt.prompts import PromptStyle
 
 # Suppress excessive warnings, see https://github.com/pytorch/pytorch/issues/111632
 pattern = re.compile(".*Profiler function .* will be ignored")
@@ -16,4 +17,4 @@ logging.getLogger("torch._dynamo.variables.torch").addFilter(
 logging.getLogger("torch.distributed.fsdp._optim_utils").disabled = True
 logging.getLogger("torch.distributed.fsdp._debug_utils").disabled = True
 
-__all__ = ["GPT", "Config", "Tokenizer"]
+__all__ = ["GPT", "Config", "Tokenizer", "PromptStyle"]
