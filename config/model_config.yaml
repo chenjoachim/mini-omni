@@ -1,0 +1,42 @@
+add_qkv_bias: true
+asr_adapter: llamamlp
+attn_dropout: 0.0
+bias: false
+block_size: 2048
+force_align: false
+gelu_approximate: none
+head_size: 128
+hf_config:
+  name: Llama-2-7b-hf
+  org: meta-llama
+intermediate_size: 11008
+lm_head_bias: false
+mlp_class_name: LLaMAMLP
+n_embd: 4096
+n_expert: 0
+n_expert_per_token: 0
+n_head: 32
+n_layer: 32
+n_query_groups: 32
+name: Llama-2-7b-hf
+norm_class_name: RMSNorm
+norm_eps: 1.0e-06
+padded_vocab_size: 48512
+padding_multiple: 512
+parallel_residual: false
+pos_type: rope
+post_adapter: false
+post_adapter_layers: 6
+prompt_vocab_size: null
+rope_base: 1000000
+rope_condense_ratio: 1
+rotary_percentage: 1
+scale_embeddings: false
+shared_attention_norm: false
+tie_word_embeddings: true
+use_pretrain_phoneme_emb: false
+vocab_size: 32000
+text_vocab_size: 32064
+cat_audio_vocab_size: 16448
+audio_vocab_size: 16448
+whisper_adapter_dim: 768
