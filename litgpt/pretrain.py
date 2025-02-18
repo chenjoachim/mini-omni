@@ -8,6 +8,8 @@ from functools import partial
 from pathlib import Path
 from typing import Optional, Tuple, Union, Dict
 
+from fire import Fire
+
 import lightning as L
 import torch
 import torch.nn as nn
@@ -20,7 +22,7 @@ from typing_extensions import Literal
 from litgpt import Tokenizer
 from litgpt.args import EvalArgs, TrainArgs
 from litgpt.config import name_to_config
-from litgpt.data import DataModule, TinyLlama, GLM4Data
+from litgpt.data import DataModule, GLM4Data
 from litgpt.model import GPT, Block, CausalSelfAttention, Config, LLaMAMLP
 from litgpt.utils import (
     CycleIterator,
@@ -94,7 +96,9 @@ def setup(
         logger_name: The name of the logger to send metrics to.
         seed: The random seed to use for reproducibility.
     """
+    print("Correct pretrain file.")
     if model_name == "list":
+        print("=======================")
         available_models = "\n".join(sorted(name_to_config))
         print(f"Available values:\n{available_models}")
         quit()
@@ -468,3 +472,7 @@ def validate_args(train: TrainArgs, eval: EvalArgs, initial_checkpoint_dir, resu
         issues.append("Can't provide both `--resume` and `--initial_checkpoint_dir`. Choose one.")
     if issues:
         raise ValueError("\n".join(issues))
+    
+
+if __name__ == "__main__":
+    Fire(setup)
